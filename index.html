@@ -35,7 +35,7 @@
       />
       <p>Your Name: {{confirmedName}}</p>
       <!-- prevent fron reloading page after click on submit & refresh data -->
-      <form v-on:submit.prevent="submitForm($event)">
+      <form v-on:submit.prevent="submitForm()">
         <input type="text" />
         <button>Sign Up</button>
       </form>
