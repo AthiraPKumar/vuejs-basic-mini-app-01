@@ -12,7 +12,7 @@
     <script src="https://unpkg.com/vue@next" defer></script>
     <script src="app.js" defer></script>
   </head>
-  <body>
+  <body id="courseApp">
     <header>
       <h1>Vue Course Goals</h1>
     </header>
@@ -20,6 +20,25 @@
       <h2>My Course Goal</h2>
       <p>{{outputGoal()}}</p>
       <p><a v-bind:href="VueLink" target="_blank">Learn More</a></p>
+    </section>
+    <section id="events">
+      <h2>Events in Action</h2>
+      <button v-on:click="addEvent(5)">Add 5</button>
+      <button v-on:click="removeEvent(5)">Reduce 5</button>
+      <!-- starting counter values only be evaluated once hence v-once -->
+      <p v-once>Starting Counter: {{counter}}</p>
+      <p>Result: {{counter}}</p>
+      <input
+        type="text"
+        v-on:input="setName($event)"
+        v-on:keyup.enter="confirmedNameOnEnter"
+      />
+      <p>Your Name: {{confirmedName}}</p>
+      <!-- prevent fron reloading page after click on submit & refresh data -->
+      <form v-on:submit.prevent="submitForm($event)">
+        <input type="text" />
+        <button>Sign Up</button>
+      </form>
     </section>
   </body>
 </html>

@@ -4,6 +4,9 @@ const app = Vue.createApp({
       courseGoalA: "Finish Course & learn Vue!",
       courseGoalB: "Master Course",
       VueLink: "https://vuejs.org/",
+      counter: 20,
+      name: "",
+      confirmedName: "",
     };
   },
   methods: {
@@ -15,7 +18,22 @@ const app = Vue.createApp({
         return this.courseGoalB;
       }
     },
+    addEvent(num) {
+      return (this.counter += num);
+    },
+    removeEvent(num) {
+      return (this.counter -= num);
+    },
+    setName(event) {
+      this.name = event.target.value;
+    },
+    submitForm(event) {
+      alert("submitted");
+    },
+    confirmedNameOnEnter() {
+      this.confirmedName = this.name;
+    },
   },
 });
 
-app.mount("#user-goal");
+app.mount("#courseApp");
