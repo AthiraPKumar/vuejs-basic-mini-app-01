@@ -7,6 +7,9 @@ const app = Vue.createApp({
       counter: 20,
       name: "",
       confirmedName: "",
+      boxASelected: false,
+      boxBSelected: false,
+      boxCSelected: false,
     };
   },
   methods: {
@@ -35,6 +38,15 @@ const app = Vue.createApp({
     },
     resetInput() {
       this.name = "";
+    },
+    boxSelected(box) {
+      if (box === "A") {
+        this.boxASelected = true;
+      } else if (box === "B") {
+        this.boxBSelected = true;
+      } else if (box === "C") {
+        this.boxCSelected = true;
+      }
     },
   },
   computed: {
