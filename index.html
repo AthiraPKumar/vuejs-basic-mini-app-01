@@ -23,19 +23,23 @@
     </section>
     <section id="events">
       <h2>Events in Action</h2>
-      <button v-on:click="addEvent(5)">Add 5</button>
-      <button v-on:click="removeEvent(5)">Reduce 5</button>
+      <button @click="addEvent(5)">Add 5</button>
+      <button @click="removeEvent(5)">Reduce 5</button>
       <!-- starting counter values only be evaluated once hence v-once -->
       <p v-once>Starting Counter: {{counter}}</p>
       <p>Result: {{counter}}</p>
-      <input
-        type="text"
+      <!-- <input
+        type="text" v-bind:value="name"
         v-on:input="setName($event)"
         v-on:keyup.enter="confirmedNameOnEnter"
-      />
-      <p>Your Name: {{confirmedName}}</p>
+      /> -->
+      <!-- v-model is the shortcut for v-bind:value & v-on:input -->
+      <input type="name" v-model="name" />
+      <button @click="resetInput()">Reset Input</button>
+      <!-- computed properties -->
+      <p>Your Full Name: {{ Fullname }}</p>
       <!-- prevent fron reloading page after click on submit & refresh data -->
-      <form v-on:submit.prevent="submitForm()">
+      <form @submit.prevent="submitForm()">
         <input type="text" />
         <button>Sign Up</button>
       </form>

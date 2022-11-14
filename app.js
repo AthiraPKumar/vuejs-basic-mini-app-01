@@ -33,6 +33,26 @@ const app = Vue.createApp({
     confirmedNameOnEnter() {
       this.confirmedName = this.name;
     },
+    resetInput() {
+      this.name = "";
+    },
+  },
+  computed: {
+    Fullname() {
+      if (this.name === "") {
+        return "";
+      } else {
+        return this.name + "" + "Kumar";
+      }
+    },
+  },
+  watch: {
+    // wacher is best for counters
+    counter(value) {
+      if (value > 50) {
+        return (this.counter = 0);
+      }
+    },
   },
 });
 
