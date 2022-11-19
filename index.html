@@ -56,5 +56,18 @@
       <div class="demo" :class="{active: boxBSelected}" @click="boxSelected('B')"></div>
       <div class="demo" :class="{active: boxCSelected}" @click="boxSelected('C')"></div>
     </section>
+    <header>
+      <h1>Vue Course Goals</h1>
+    </header>
+    <section id="user-goals">
+      <h2>My course goals</h2>
+      <input type="text" v-model="enteredGoalValues"/>
+      <button @click="addGoals()">Add Goal</button>
+      <p v-if="goals.length === 0">No goals have been added yet - please start adding some!</p>
+      <!-- add a key value with unique identification mark :key="goal" than index which helps vue identifications apart -->
+      <ul v-if="goals.length > 0" v-for="(goal, index) in goals" :key="goal" @click="removeGoals(index)">
+        <li>{{goal}} - {{index}}</li>
+      </ul>
+    </section>
   </body>
 </html>
